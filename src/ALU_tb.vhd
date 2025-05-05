@@ -167,7 +167,8 @@ begin
             report "OR: wrong result" severity error;
         assert w_flags  = "1000"             -- N=1 Z=0 C=0 V=0
             report "OR: wrong NZCV" severity error;
-
+            
+ 
         ----------------------------------------------------------------------------
         --  All tests passed
         ----------------------------------------------------------------------------
