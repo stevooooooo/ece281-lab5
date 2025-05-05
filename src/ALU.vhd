@@ -90,12 +90,12 @@ begin
     o_flags(3) <= w_result(7);
     process(w_S)
     begin
-        if w_S = "00000000" then  -- Simplified zero flag logic
+        if w_result = "00000000" then  -- Simplified zero flag logic
             o_flags(2) <= '1';
         else 
             o_flags(2) <= '0';
         end if;
     end process;
     o_flags(1) <= ((not i_op(1)) and w_Cout2);
-    o_flags(0) <= (i_A(7) and w_B(7) and not w_S(7)) or (not i_A(7) and not w_B(7) and w_S(7));
+    o_flags(0) <= (i_A(7) and w_B(7) and not w_result(7)) or (not i_A(7) and not w_B(7) and w_result(7));
 end Behavioral;
