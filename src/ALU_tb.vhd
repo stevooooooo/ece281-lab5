@@ -39,7 +39,7 @@ architecture testbench of ALU_tb is
     constant OP_OR  : std_logic_vector(2 downto 0) := "011";  -- 11
 
     -- Time between successive stimuli (no clock is needed for a pure-combinational ALU)
-    constant k_step : time := 10 ns;
+    constant k_step : time := 20 ns;
 
 begin
     --------------------------------------------------------------------------

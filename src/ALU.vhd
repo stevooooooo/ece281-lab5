@@ -46,6 +46,7 @@ architecture Behavioral of ALU is
     signal w_or : STD_LOGIC_VECTOR (7 downto 0);
     signal w_and : STD_LOGIC_VECTOR (7 downto 0);
     signal w_B : STD_LOGIC_VECTOR (7 downto 0);  -- New signal for inverted B
+    signal w_result : STD_LOGIC_VECTOR (7 downto 0);
  
     component ripple_adder is 
         Port ( A : in STD_LOGIC_VECTOR (3 downto 0);
@@ -78,13 +79,15 @@ begin
     w_and <= i_A and i_B;
  
     with i_op select 
-    o_result <= w_or when "011",
+    w_result <= w_or when "011",
                w_and when "010",
                w_S when "001",
                w_S when "000",
                "00000000" when others;
+               
+    o_result <= w_result;           
  
-    o_flags(3) <= w_S(7);
+    o_flags(3) <= w_result(7);
     process(w_S)
     begin
         if w_S = "00000000" then  -- Simplified zero flag logic
