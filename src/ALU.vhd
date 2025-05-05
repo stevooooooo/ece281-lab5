@@ -88,7 +88,7 @@ begin
     o_result <= w_result;           
  
     o_flags(3) <= w_result(7);
-    process(w_S)
+    process(w_result)
     begin
         if w_result = "00000000" then  -- Simplified zero flag logic
             o_flags(2) <= '1';
